@@ -1,0 +1,33 @@
+#include <iostream>
+#include <string>
+
+void celsiusToKelvin()
+{
+    float x;
+  std::cout << "Enter Celsius to Kelvin: ";
+  std::cin >> x; 
+  std::cout << x+273.15 << std::endl;
+}
+void kelvinToCelsius()
+{
+     float x;
+  std::cout << "Enter Kelvin to Celsius: ";
+  std::cin >> x; 
+  std::cout << x-273.15 << std::endl;
+}
+
+
+
+int main()
+{
+  int response;
+  std::cout << "Enter 1 for Celsius to Kelvin \nEnter 2 for Kelvin to Celsius\n";
+  std::cin >> response;
+  if (response == 1){
+        celsiusToKelvin();
+  }
+  else if (response == 2){
+      kelvinToCelsius();
+  }
+  return 0;
+}
