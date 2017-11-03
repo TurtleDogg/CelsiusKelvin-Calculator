@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <algorithm>
 
 void celsiusToKelvin()
 {
@@ -20,14 +21,32 @@ void kelvinToCelsius()
 
 int main()
 {
-  int response;
-  std::cout << "Enter 1 for Celsius to Kelvin \nEnter 2 for Kelvin to Celsius\n";
+  std::string response;
+  std::cout << "Welcome to the Kelvin-Celsius Calculator" << std::endl;
+  std::cout << "Enter 'KELVIN' for Celsius to Kelvin. \nEnter 'CELSIUS' for Kelvin to Celsius.\n";
   std::cin >> response;
-  if (response == 1){
+  std::transform(response.begin(), response.end(), response.begin(), ::tolower);
+  if (response == "kelvin"){
         celsiusToKelvin();
   }
-  else if (response == 2){
+  else if (response == "celsius"){
       kelvinToCelsius();
   }
+  else 
+  {
+      std::cout << "Incorrect input - Restarting" << std::endl;
+      main();
+  }
+  std::string continueResponse;
+  std::cout << "Do you want to go again?" <<std::endl;
+  std::cin >> continueResponse;
+  std::transform(continueResponse.begin(),continueResponse.end(),continueResponse.begin(), ::tolower);
+  if (continueResponse == "yes"){
+      main();
+  }
+  else{
+      main();
+  }
+  
   return 0;
 }
