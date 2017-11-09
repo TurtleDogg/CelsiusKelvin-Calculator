@@ -1,23 +1,36 @@
 #include <iostream>
 #include <string>
 #include <algorithm>
+#include <cstdlib>
 
 void celsiusToKelvin()
 {
     float x;
   std::cout << "Enter Celsius to Kelvin: ";
-  std::cin >> x; 
-  std::cout << x+273.15 << std::endl;
+  std::cin >> x;
+  if (std::cin.fail()){
+      std::cout << "Your response is not an float" << std::endl;
+      std::cin.clear();
+      std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+   }
+  else {
+    std::cout << x+273.15 << std::endl;
+  }
 }
 void kelvinToCelsius()
 {
      float x;
   std::cout << "Enter Kelvin to Celsius: ";
   std::cin >> x; 
-  std::cout << x-273.15 << std::endl;
+   if (std::cin.fail()){
+      std::cout << "Your response is not an float" << std::endl;
+      std::cin.clear();
+      std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+   }
+  else {
+    std::cout << x-273.15 << std::endl;
+  }
 }
-
-
 
 int main()
 {
@@ -45,7 +58,7 @@ int main()
       main();
   }
   else{
-      main();
+      quick_exit(EXIT_SUCCESS);
   }
   
   return 0;
